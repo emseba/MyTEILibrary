@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9-set-2016 11.00.20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="it.teilibrary.entity.ManuscriptTranscription" table="manuscript_transcription" catalog="mydb" optimistic-lock="version">
+        <composite-id name="id" class="it.teilibrary.entity.ManuscriptTranscriptionId">
+            <key-property name="userUsername" type="string">
+                <column name="user_username" length="16" />
+            </key-property>
+            <key-property name="userRoleIdrole" type="int">
+                <column name="user_role_idrole" />
+            </key-property>
+            <key-property name="manuscriptScanIdmanuscriptScan" type="int">
+                <column name="manuscript_scan_idmanuscript_scan" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="manuscriptScan" class="it.teilibrary.entity.ManuscriptScan" update="false" insert="false" fetch="select">
+            <column name="manuscript_scan_idmanuscript_scan" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="it.teilibrary.entity.User" update="false" insert="false" fetch="select">
+            <column name="user_username" length="16" not-null="true" />
+            <column name="user_role_idrole" not-null="true" />
+        </many-to-one>
+        <property name="manuscriptXmlTei" type="string">
+            <column name="manuscript_xml_tei" />
+        </property>
+        <property name="pubblication" type="java.lang.Boolean">
+            <column name="pubblication" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9-set-2016 11.00.20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="it.teilibrary.entity.Role" table="role" catalog="mydb" optimistic-lock="version">
+        <id name="idrole" type="java.lang.Integer">
+            <column name="idrole" />
+            <generator class="identity" />
+        </id>
+        <property name="roleDescription" type="string">
+            <column name="role_description" length="45" />
+        </property>
+        <property name="administrator" type="java.lang.Boolean">
+            <column name="administrator" />
+        </property>
+        <property name="scan" type="java.lang.Boolean">
+            <column name="scan" />
+        </property>
+        <property name="scanRevisor" type="java.lang.Boolean">
+            <column name="scan_revisor" />
+        </property>
+        <property name="transcriber" type="java.lang.Boolean">
+            <column name="transcriber" />
+        </property>
+        <property name="transcriberRevisor" type="java.lang.Boolean">
+            <column name="transcriber_revisor" />
+        </property>
+        <property name="baseUser" type="java.lang.Boolean">
+            <column name="base_user" />
+        </property>
+        <property name="advancedUser" type="java.lang.Boolean">
+            <column name="advanced_user" />
+        </property>
+        <set name="menus" table="menu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="role_idrole" not-null="true" />
+            </key>
+            <one-to-many class="it.teilibrary.entity.Menu" />
+        </set>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="role_idrole" not-null="true" />
+            </key>
+            <one-to-many class="it.teilibrary.entity.User" />
+        </set>
+    </class>
+</hibernate-mapping>

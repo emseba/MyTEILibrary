@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9-set-2016 11.00.20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="it.teilibrary.entity.Menu" table="menu" catalog="mydb" optimistic-lock="version">
+        <composite-id name="id" class="it.teilibrary.entity.MenuId">
+            <key-property name="menuid" type="int">
+                <column name="menuid" />
+            </key-property>
+            <key-property name="roleIdrole" type="int">
+                <column name="role_idrole" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="role" class="it.teilibrary.entity.Role" update="false" insert="false" fetch="select">
+            <column name="role_idrole" not-null="true" />
+        </many-to-one>
+        <property name="menuda" type="java.lang.Integer">
+            <column name="menuda" />
+        </property>
+        <property name="menutext" type="string">
+            <column name="menutext" length="20" />
+        </property>
+        <property name="comando" type="string">
+            <column name="comando" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

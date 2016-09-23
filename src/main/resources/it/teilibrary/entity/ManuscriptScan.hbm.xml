@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 9-set-2016 11.00.20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="it.teilibrary.entity.ManuscriptScan" table="manuscript_scan" catalog="mydb" optimistic-lock="version">
+        <id name="idmanuscriptScan" type="java.lang.Integer">
+            <column name="idmanuscript_scan" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="manuscript" class="it.teilibrary.entity.Manuscript" fetch="select">
+            <column name="manuscript_idmanuscript" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="it.teilibrary.entity.User" fetch="select">
+            <column name="user_username" length="16" not-null="true" />
+            <column name="user_role_idrole" not-null="true" />
+        </many-to-one>
+        <property name="scanTime" type="timestamp">
+            <column name="scan_time" length="19" />
+        </property>
+        <property name="imageScan" type="binary">
+            <column name="image_scan" />
+        </property>
+        <property name="imageDescription" type="string">
+            <column name="image_description" length="45" />
+        </property>
+        <property name="pubblication" type="java.lang.Boolean">
+            <column name="pubblication" />
+        </property>
+        <set name="manuscriptTranscriptions" table="manuscript_transcription" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="manuscript_scan_idmanuscript_scan" not-null="true" />
+            </key>
+            <one-to-many class="it.teilibrary.entity.ManuscriptTranscription" />
+        </set>
+    </class>
+</hibernate-mapping>
