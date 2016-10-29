@@ -1,5 +1,8 @@
 it.teilibrary
-it.teilibrary.entity
-it.teilibrary.gui
+it.teilibrary.controllers
+it.teilibrary.dao
+it.teilibrary.dao.hibernate
+it.teilibrary.models
 it.teilibrary.util
 it.teilibrary.util.imagePanel
+it.teilibrary.views

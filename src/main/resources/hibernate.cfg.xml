@@ -9,11 +9,11 @@
     <property name="hibernate.connection.password">root123</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="it/teilibrary/entity/Manuscript.hbm.xml"/>
-    <mapping resource="it/teilibrary/entity/Menu.hbm.xml"/>
-    <mapping resource="it/teilibrary/entity/ManuscriptScan.hbm.xml"/>
-    <mapping resource="it/teilibrary/entity/Role.hbm.xml"/>
-    <mapping resource="it/teilibrary/entity/User.hbm.xml"/>
-    <mapping resource="it/teilibrary/entity/ManuscriptTranscription.hbm.xml"/>
+    <mapping resource="it/teilibrary/models/Manuscript.hbm.xml"/>
+    <mapping resource="it/teilibrary/models/Menu.hbm.xml"/>
+    <mapping resource="it/teilibrary/models/ManuscriptScan.hbm.xml"/>
+    <mapping resource="it/teilibrary/models/Role.hbm.xml"/>
+    <mapping resource="it/teilibrary/models/User.hbm.xml"/>
+    <mapping resource="it/teilibrary/models/ManuscriptTranscription.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

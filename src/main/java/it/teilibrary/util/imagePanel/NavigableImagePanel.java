@@ -42,6 +42,7 @@ import javax.swing.SwingUtilities;
  * component, at the largest possible size, fully visible, with its aspect ratio
  * is preserved. This is defined as 100% of the image size and its corresponding
  * zoom level is 1.0.
+ * </p>
  * <h3>Zooming</h3>
  * <p>
  * Zooming can be controlled interactively, using either the mouse scroll wheel
@@ -350,7 +351,7 @@ public final class NavigableImagePanel extends JPanel implements NavigableImageP
         navImageWidth = (int) (getWidth() * NAV_IMAGE_FACTOR);
         navImageHeight = navImageWidth * image.getHeight() / image.getWidth();
         int scrNavImageWidth = (int) (getWidth() * SCREEN_NAV_IMAGE_FACTOR);
-        int scrNavImageHeight = scrNavImageWidth * image.getHeight() / image.getWidth();
+        //int scrNavImageHeight = scrNavImageWidth * image.getHeight() / image.getWidth();
         navScale = (double) scrNavImageWidth / navImageWidth;
         navigationImage = new BufferedImage(navImageWidth, navImageHeight,
                 image.getType());

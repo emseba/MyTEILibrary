@@ -1,6 +1,6 @@
 package it.teilibrary.util;
 
-import it.teilibrary.entity.ManuscriptTranscription;
+import it.teilibrary.models.ManuscriptTranscription;
 import java.io.StringReader;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -67,11 +67,7 @@ public class TEIElaborator {
         Element pubPlace = newEle("pubPlace", publicationStmt);
         pubPlace.setText(TEIElaborator._infrastructure);
         Element date = newEle("date", publicationStmt);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") {
-            {
-                setTimeZone(TimeZone.getTimeZone("GMT"));
-            }
-        };
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         date.setAttribute("when", dateFormat.format(new Date()));
         Element sourceDesc = newEle("sourceDesc", fileDesc);
         Element sourceDescP = newEle("p", sourceDesc);
